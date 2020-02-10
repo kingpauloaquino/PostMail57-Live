@@ -74,7 +74,7 @@ class SMTPController extends Controller
 
       $this->getUserSMTPConfig($user_id);
 
-      $temp = DB::select("SELECT * FROM mail_templates WHERE user_id = {$user_id} AND mail_name = '{$mail_template}' AND mail_status > 1;");
+      $temp = DB::select("SELECT * FROM mail_templates WHERE user_id = {$user_id} AND mail_name = '{$mail_template}' AND mail_status = 1;");
       if($temp == null) {
           $this->updateEmailQueue($qid, 402);
           return array(
